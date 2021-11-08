@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1,minimum-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="An implementation of chess." />
+        <title>Chess</title>
+        <link rel="stylesheet" href="./static/css/index.css" />
+        <link rel="stylesheet" href="./static/css/chessboard-1.0.0.css" />
+    </head>
+    <body>
+        <header>
+            <h2>Chess</h2>
+            <div id="nav">
+                <a href="https://the-index.info">Home</a>
+                <img id="theme" width="24" height="24" src="./static/img/modes/light.svg" alt="" />
+            </div>
+        </header>
+
+        <div id="content">
+            <div id="board-wrapper">
+                <div id="board"></div>
+            </div>
+
+            <div id="controls">
+                <div id="room-join">
+                    <p>Enter a room ID:</p>
+                    <input type="number" id="room-join-in" min="0" max="127" />
+                    <br/>
+                    <br/>
+                    <button id="room-join-submit" class="special copy">Join</button>
+                </div>
+                <div id="room-join-info">
+                    <p id="room-join-state">Not connected.</p>
+                </div>
+            </div>
+        </div>
+
+        <script src="./static/js/theme.js"></script>
+        <script src="./static/js/jquery-3.6.0.min.js"></script>
+        <script src="./static/js/chess-0.12.0.js"></script>
+        <script src="./static/js/chessboard-1.0.0.js"></script>
+        <script src="./static/js/socket.io-4.3.1.js"></script>
+        <script src="./static/js/index.js"></script>
+    </body>
+</html>

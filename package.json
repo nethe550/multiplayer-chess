@@ -1,0 +1,32 @@
+{
+  "name": "chess",
+  "version": "1.0.0",
+  "description": "A multiplayer chess implementation.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nethe550/multiplayer-chess.git"
+  },
+  "keywords": [
+    "multiplayer",
+    "chess",
+    "chess.js",
+    "chessboard.js",
+    "chessjs",
+    "chessboardjs",
+    "chessboard"
+  ],
+  "author": "nethe550",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nethe550/multiplayer-chess/issues"
+  },
+  "homepage": "https://github.com/nethe550/multiplayer-chess#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.3.1"
+  }
+}

@@ -1,0 +1,267 @@
+:root {
+
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --text-color: rgb(255,255,255);
+    --special-text-color: rgb(255,255,255);
+    --primary-background-color: rgb(36,41,46);
+    --secondary-background-color: rgb(0, 102, 255);
+    --tertiary-background-color: rgb(47,54,61);
+    --primary-hover-color: rgb(47,54,61);
+    --secondary-hover-color: rgb(15,119,255);
+    --border-color: rgb(85,85,85);
+    --border-radius: 6px;
+    --theme-toggle-brightness: 85%;
+    --select-color: rgb(0,0,0);
+    --select-background-color: rgb(255,255,255);
+    
+    --board-width: 40em;
+    --header-height: 88px;
+
+}
+
+* {
+    color: var(--text-color);
+    font-family: var(--font);
+    user-select: none;
+}
+
+::selection {
+    color: var(--select-color);
+    background-color: var(--select-background-color);
+}
+
+/* Firefox */
+::-moz-selection {
+    color: var(--select-color);
+    background-color: var(--select-background-color);
+}
+
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+    padding: 0.25em 0.75em;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+html {
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-background-color);
+    overflow: hidden;
+}
+
+body {
+    display: block;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    margin: 0;
+}
+
+header {
+    width: calc(100vw - 4em);
+    height: var(--header-height);
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 0.5em;
+    padding: 0 2em;
+    justify-content: space-between;
+}
+
+header > * {
+    font-weight: 200;
+}
+
+a {
+    font-size: 18px;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+div#nav {
+    margin: 2em 0;
+    width: auto;
+}
+
+button, input {
+    background-color: var(--primary-background-color);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    padding: 12px 24px;
+    margin: 0;
+}
+
+button:hover {
+    background-color: var(--primary-hover-color);
+}
+
+button.special {
+    background-color: var(--secondary-background-color);
+    border: 1px solid var(--secondary-background-color);
+    color: var(--special-text-color);
+}
+
+button.special:hover {
+    background-color: var(--secondary-hover-color);
+    border: 1px solid var(--secondary-hover-color);
+}
+
+div#board {
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: 100%;
+}
+
+div#board-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    /* Firefox */
+    width: -moz-fit-content;
+    width: var(--board-width);
+    height: var(--board-width);
+    padding: 0.25em;
+    background-color: var(--tertiary-background-color);
+    border-radius: var(--border-radius);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+div#content {
+    top: var(--header-height);
+    width: calc(100% - 4em);
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    padding: 2em;
+}
+
+div#controls {
+    margin: 1em 0;
+    justify-content: flex-start;
+    column-gap: 2em;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-width: 50%;
+}
+
+img#theme {
+    display: table-cell;
+    filter: invert(var(--theme-toggle-brightness));
+    vertical-align: middle;
+    margin: 0 1em;
+    margin-bottom: 0.25em;
+}
+
+p#game-info-title {
+    font-style: italic;
+    font-size: 18px;
+}
+
+div#room-join {
+    width: 100%;
+    flex-wrap: wrap;
+    font-weight: 200;
+}
+
+div#room-join > p {
+    display: inline-block;
+    font-size: 18px;
+}
+
+p#room-join-state {
+    max-height: 48px;
+    word-wrap: nowrap;
+    font-weight: 200;
+}
+
+input#room-join-in {
+    display: inline;
+    float: right;
+    width: 65%;
+    height: 3em;
+    box-shadow: inset rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    user-select: unset;
+}
+
+button#room-join-submit {
+    width: 10em;
+    height: 3em;
+    display: inline;
+    float: right;
+    cursor: pointer;
+}
+
+div#room-join-info {
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+}
+
+@media screen and (max-width: 797px) {
+
+    input#room-join-in {
+        margin: 0.5em 0;
+        width: 100%;
+        float: left;
+    }
+
+    button#room-join-submit {
+        width: 100%;
+    }
+
+}
+
+/* Chessboard */
+.piece-417db {
+    cursor: grab;
+}
+
+/* For mobile devices */
+@media screen 
+    and (max-width: 375px)
+    and (max-height: 667px)
+    and (orientation: portrait) {
+
+    div#board-wrapper {
+
+        width: 20em;
+        height: 20em;
+    }
+
+}
+@media screen 
+    and (max-width: 667px)
+    and (max-height: 375px)
+    and (orientation: landscape) {
+
+    html {
+        overflow: auto;
+    }
+
+    div#board-wrapper {
+        width: 15em;
+        height: 15em;
+    }
+
+}
