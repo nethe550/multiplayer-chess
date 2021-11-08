@@ -7,9 +7,10 @@ This is hosted on my website, [the-index.info](http://the-index.info:25565).
 Setup is pretty simple.
 
 1. Clone the repository: `git clone https://github.com/nethe550/multiplayer-chess.git && cd ./multiplayer-chess/`
-2. Edit `port` in config.json. This is the port the Node.js server listens on. (default: 3000)
-3. Edit `games` in config.json. This is the amount of concurrent game rooms that the server will serve. (default: 128)
-4. Run `npm init` to start the server.
+2. Run `npm install` to install all dependencies.
+3. Edit `port` in config.json. This is the port the Node.js server listens on. (default: 3000)
+4. Edit `games` in config.json. This is the amount of concurrent game rooms that the server will serve. (default: 128)
+5. Run `npm init` to start the server.
 
 ## How To Use
 To access the chess server, go to `http://<your-hostname>:<your-port>`.
