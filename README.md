@@ -1,4 +1,4 @@
-# Multiplayer Chess
+# Multiplayer Chess (v1.0.1)
 A multiplayer implementation of chess, using Chessboard.js, Chess.js, Express.js, and Socket.IO.
 
 This is hosted on my website, [the-index.info](http://the-index.info:25565).
@@ -17,3 +17,15 @@ To access the chess server, go to `http://<your-hostname>:<your-port>`.
 
 - `<your-hostname>` is the host name of whatever you're running the server off of. (Usually `localhost`)
 - `<your-port>` is the port number you specified in config.json (default: 3000)
+
+# Updates
+## v1.0.1
+- Added room availability display on room join menu
+- Fixed error with status saying player is in check by themselves
+- Fixed CSS for Chrome-based browsers
+- Fixed CSS for Safari-based browsers
+- Theme switcher now stores preference as a cookie
+- Styled the chess board to match the themes better
+- Auto-resize chess board on window resize for reactive layout
+- Fixed some invalid state situations caused by joining / leaving the same game multiple times
+- Fixed usability on mobile devices
