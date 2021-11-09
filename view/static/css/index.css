@@ -17,6 +17,13 @@
     --board-width: 40em;
     --header-height: 88px;
 
+    --open-color: rgb(150,255,150);
+    --closed-color: rgb(255,150,150);
+
+    --black-square-color: rgb(100,100,100);
+    --white-square-color: rgb(125,125,125);
+    --highlight-square-color: rgb(150,150,150);
+
 }
 
 * {
@@ -57,7 +64,7 @@ html {
     left: 0;
     right: 0;
     background-color: var(--primary-background-color);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 body {
@@ -166,7 +173,7 @@ div#controls {
 }
 
 img#theme {
-    display: table-cell;
+    display: inline;
     filter: invert(var(--theme-toggle-brightness));
     vertical-align: middle;
     margin: 0 1em;
@@ -218,23 +225,91 @@ div#room-join-info {
     width: 100%;
 }
 
-@media screen and (max-width: 797px) {
+#room-status-wrapper {
+    background-color: var(--tertiary-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    align-self: center;
+    align-content: center;
+    width: 80%;
+    padding: 0.5em 2em 2em 2em;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.25em;
+    min-width: 262px;
+    max-width: 350px;
+}
 
-    input#room-join-in {
-        margin: 0.5em 0;
-        width: 100%;
-        float: left;
-    }
+#room-status-wrapper > * {
+    font-weight: 200;
+    align-self: center;
+    width: 100%;
+}
 
-    button#room-join-submit {
-        width: 100%;
-    }
+#room-status-wrapper > h2 {
+    text-align: center;
+    margin: 0.25em 0;
+}
 
+#room-status {
+    padding: 0.25em;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--primary-background-color);
+    min-height: 5em;
+    max-height: 12em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 262px;
+    max-width: 350px;
+    /* Firefox */
+    scrollbar-width: thin;
+}
+
+.room-status-list-item {
+    width: fit-content;
+    /* Firefox */
+    width: moz-fit-content;
+}
+
+#room-status::-webkit-scrollbar {
+    width: 10px;
+    margin: 0.25em;
+}
+
+#room-status::-webkit-scrollbar-track {
+    background-color: var(--tertiary-background-color);
+    border-radius: var(--border-radius);
+}
+
+#room-status::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-background-color);
+    border-radius: var(--border-radius);
+}
+
+#room-status::-webkit-scrollbar-thumb:hover {
+    background-color: var(--secondary-hover-color);
 }
 
 /* Chessboard */
 .piece-417db {
     cursor: grab;
+}
+
+.black-3c85d {
+    background-color: var(--black-square-color);
+}
+
+.white-1e1d7 {
+    background-color: var(--white-square-color);
+}
+
+.highlight1-32417, .highlight2-9c5d2 {
+    box-shadow: inset 0 0 3px 3px var(--highlight-square-color);
 }
 
 /* For mobile devices */
@@ -262,6 +337,20 @@ div#room-join-info {
     div#board-wrapper {
         width: 15em;
         height: 15em;
+    }
+
+}
+
+@media screen and (max-width: 797px) {
+
+    input#room-join-in {
+        margin: 0.5em 0;
+        width: 100%;
+        float: left;
+    }
+
+    button#room-join-submit {
+        width: 100%;
     }
 
 }

@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1,minimum-scale=1" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="ScreenOrientation" content="autoRotate:disabled" />
         <meta name="description" content="An implementation of chess." />
         <title>Chess</title>
         <link rel="stylesheet" href="./static/css/index.css" />
@@ -34,11 +35,19 @@
                 <div id="room-join-info">
                     <p id="room-join-state">Not connected.</p>
                 </div>
+                <br/>
+                <div id="room-status-wrapper">
+                    <h2>Rooms:</h2>
+                    <div id="room-status">
+
+                    </div>
+                </div>
             </div>
         </div>
 
-        <script src="./static/js/theme.js"></script>
         <script src="./static/js/jquery-3.6.0.min.js"></script>
+        <script src="./static/js/js.cookie.js"></script>
+        <script src="./static/js/theme.js"></script>
         <script src="./static/js/chess-0.12.0.js"></script>
         <script src="./static/js/chessboard-1.0.0.js"></script>
         <script src="./static/js/socket.io-4.3.1.js"></script>

@@ -24,6 +24,10 @@ app.get('/init', (req, res) => {
     res.json({ games: gameManager.games.length });
 });
 
+app.get('/room-status', (req, res) => {
+    res.json(gameManager.getGamesStatus());
+});
+
 io.on('connection', (socket) => {
 
     const playerId = gameManager.getNewPlayerId();
@@ -36,7 +40,7 @@ io.on('connection', (socket) => {
 
     // this socket's room id
     let roomID;
- 
+
     // recieved a new socket trying to join a game
     socket.on('join', (roomId) => {
 
@@ -48,6 +52,10 @@ io.on('connection', (socket) => {
             gameManager.games[roomId].pid[gameManager.games[roomId].players - 1] = playerId;
 
             roomID = roomId;
+
+            socket.emit('send-room-status', gameManager.getGamesStatus());
+            socket.broadcast.emit('send-room-status', gameManager.getGamesStatus());
+            
         }
         // game is full
         else {
@@ -79,13 +87,22 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('play', msg);
 
     });
-    
+
+    socket.on('get-room-status', () => {
+
+        socket.emit('send-room-status', gameManager.getGamesStatus());
+        socket.broadcast.emit('send-room-status', gameManager.getGamesStatus());
+
+    });
     
     socket.on('disconnect', () => {
-    
+        
         socket.broadcast.emit('player-exit', { room: roomID });
         gameManager.removePlayerFromGame(playerId);
-    
+        
+        socket.emit('send-room-status', gameManager.getGamesStatus());
+        socket.broadcast.emit('send-room-status', gameManager.getGamesStatus());
+
     });
 
 });

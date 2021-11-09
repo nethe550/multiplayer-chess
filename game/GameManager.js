@@ -9,6 +9,9 @@ class GameManager {
      */
     constructor(games) {
 
+        /**
+         * @type {Game[]}
+         */
         this.games = Array(games);
 
         for (let i = 0; i < this.games.length; i++) {
@@ -45,6 +48,35 @@ class GameManager {
             }
 
         }
+
+    }
+
+    /**
+     * Gets information on all games running currently
+     * @typedef {{ games: [ { currentPlayers: number, inProgress: boolean } ] }} GamesInfo
+     * @returns {GamesInfo} The games info
+     */
+    getGamesStatus() {
+
+        /**
+         * @type {GamesInfo}
+         */
+        const gamesInfo = {
+            games: []
+        };
+
+        for (let i = 0; i < this.games.length; i++) {
+
+            const gameInfo = {
+                currentPlayers: this.games[i].players,
+                inProgress: this.games[i].players >= 2
+            };
+
+            gamesInfo.games.push(gameInfo);
+
+        }
+
+        return gamesInfo;
 
     }
 
